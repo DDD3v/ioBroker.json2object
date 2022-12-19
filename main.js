@@ -154,7 +154,7 @@ class Json2object extends utils.Adapter {
 		try {
 			obj = JSON.parse(val);
 		} catch (e) {
-			this.log.warn(`invalid json format on: ${id} detected`);
+			this.log.warn(`invalid json format on: ${id} detected: ` + val);
 			return;
 		}
 		for (const [key, value] of Object.entries(obj)) {
@@ -171,7 +171,7 @@ class Json2object extends utils.Adapter {
 				native: {},
 			});
 			this.log.debug(`set Object ${key} to: ${value}`);
-			this.setState(id + "." + key, { val: value, ack: true });
+			this.setState(id + "." + key, { val: (typeof value ===  "object" ? JSON.stringify(value) : value), ack: true });
 		}
 	}
 	/**

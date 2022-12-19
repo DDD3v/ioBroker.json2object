@@ -5,6 +5,9 @@
 		"inputKeys": {
 			"type": "text",
 			"label": "input keys",
+			"sm": 12,
+			"md": 12,
+			"lg": 12,
 			"newLine": true
 		},
 		"outSuffix": {
